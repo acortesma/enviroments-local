@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  sonarqube:
+    image: sonarqube:lts
+    expose:
+      - 9000
+    ports:
+      - "127.0.0.1:9000:9000"
