@@ -6,5 +6,7 @@ En cada directorio podrán encontrar un fichero docker-compose.yml con la que in
 
 ### Herramientas
 
-* [Sonarqube](,/sonarqube)
+* [Sonarqube](./sonarqube)
 * [Jenkis](./jenkins)
+* [Kafka](./kafka)
+* [Nexus 3](./nexus) 
