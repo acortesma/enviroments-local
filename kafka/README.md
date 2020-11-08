@@ -8,7 +8,7 @@ Veremos como disponer en local de un kafka y un visor web de los topics.
 
 Para iniciar ubícate en el directorio y ejecuta:
 ```
-docker-compose -d up
+docker-compose up -d
 ``` 
 
 Podrás publicar y consumir eventos conectando tu aplicación a la ruta:

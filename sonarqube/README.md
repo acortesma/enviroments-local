@@ -8,7 +8,7 @@ Veremos como disponer en local de Sonarqube
 
 Para iniciar ubícate en el directorio y ejecuta:
 ```
-docker-compose -d up
+docker-compose up -d
 ``` 
 
 Puedes acceder a la pantalla de inicio:

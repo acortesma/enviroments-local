@@ -13,7 +13,7 @@ Modifica en el fichero `docker-compose.yml` la ruta donde se generará el volume
 
 Para iniciar ubícate en el directorio y ejecuta:
 ```
-docker-compose -d up
+docker-compose up -d
 ``` 
 
 Puedes acceder a la pantalla de inicio:
