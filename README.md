@@ -9,4 +9,5 @@ En cada directorio podrán encontrar un fichero docker-compose.yml con la que in
 * [Sonarqube](./sonarqube)
 * [Jenkis](./jenkins)
 * [Kafka](./kafka)
-* [Nexus 3](./nexus) 
+* [Nexus 3](./nexus)
+* [Redis](./redis)
