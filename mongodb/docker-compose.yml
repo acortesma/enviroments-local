@@ -1,0 +1,10 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo
+    container_name: mongo-local
+    volumes:
+      - ~/docker-volumes/mongodb:/data/db
+    ports:
+      - "27017:27017"
+

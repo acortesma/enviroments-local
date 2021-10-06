@@ -1,11 +1,16 @@
-version: "3"
+version: '3'
 services:
-  jenkins:
-    image: jenkins/jenkins:lts
-    container_name: jenkins
-    user: jenkins
-    volumes:
-      - ~/Documents/Personal/Cursos/Jenkins/jenkins_home:/var/jenkins_home
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+    - REDIS_HOSTS=local:redis:6379
     ports:
-      - "8080:8080"
-      - "50000:50000"
+    - "8081:8081"
