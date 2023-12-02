@@ -1,0 +1,22 @@
+version: "3.8"
+
+networks:
+  jenkins:
+    name: jenkins
+
+services:
+  jenkins:
+    build: .
+    user: 0:0
+    container_name: jenkins-docker-jdk17
+    privileged: true
+    volumes:
+      - ~/Projects/volumes/Jenkins/jenkins-docker-jdk17:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - jenkins
+volumes:
+    jenkins_home:
