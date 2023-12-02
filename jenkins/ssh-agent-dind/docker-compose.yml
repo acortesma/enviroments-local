@@ -1,0 +1,21 @@
+version: "3.8"
+
+networks:
+  jenkins:
+    name: jenkins
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    user: 0:0
+    container_name: jenkins-jdk17
+    privileged: true
+    volumes:
+      - ~/Projects/volumes/Jenkins/jenkins_home_lts-jdk17:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - jenkins
+volumes:
+    jenkins_home:

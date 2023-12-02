@@ -1,12 +1,13 @@
 # Jenkins
 
+**NOTA**: Esta guía está incompleta. El propósito es tener un agente con DinD pero parace no ser una estragegia correcta.
+
 ## Introducción
 Veremos como disponer en local de un jenkins
 
 ## Contenido
 - *docker-compose*: fichero con la configuración completa
 - 
-
 
 ## Instalación
 
@@ -17,6 +18,10 @@ Veremos como disponer en local de un jenkins
 
  ### 2. Construcción del agente ssh
 
+sudo groupmod -g 995 docker
+getent group docker
+cat /etc/group
+
  ### 3. Configuración de comunicación master-agente
 
 1. creamos un par de claves SSH `ssh-keygen -t ed25519 -C "jenkins@agent"`
@@ -25,7 +30,6 @@ Veremos como disponer en local de un jenkins
 Si quieres ejecutar un agente manualmente, podrías ejecutar (sustituyendo los corchetes por tu clave pública):
 ```bash
 docker run -d --rm --name=agent-jenkins --network jenkins -p 22:22 -e "JENKINS_AGENT_SSH_PUBKEY=[public-ssh]" jenkins/ssh-agent:jdk17
-docker run -d --rm --name=agent-jenkins --network jenkins -v /var/run/docker.sock:/var/run/docker.sock -p 22:22 -e "JENKINS_AGENT_SSH_PUBKEY=[public-ssh]" agent-jenkins-dind
 ```
 
 3. Configurar agente en Jenkins
@@ -51,7 +55,6 @@ ssh -i <ruta_clave_privada_ssh> jenkins@agent-jenkins
     - *host*: <name_host_agent>
     - *host key verification*: know hosts file Verification Strategy
 
-          
 ## Configurando conexión con Github
 
 ### 1. crear enlace para exponer jenkins al mundo
