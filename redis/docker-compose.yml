@@ -3,9 +3,12 @@ services:
   redis:
     container_name: redis
     hostname: redis
-    image: redis
+    image: redis:6.0.20-alpine
+    command: redis-server --requirepass X3nVR3h37Ux
     ports:
     - "6379:6379"
+    networks:
+      - redis_network
 
   redis-commander:
     container_name: redis-commander
@@ -13,6 +16,14 @@ services:
     image: rediscommander/redis-commander:latest
     restart: always
     environment:
-    - REDIS_HOSTS=local:redis:6379
+    - REDIS_HOSTS=local:redis:6379:0:X3nVR3h37Ux
     ports:
     - "8090:8081"
+    networks:
+      - redis_network
+    depends_on:
+      - redis
+
+networks:
+  redis_network:
+    driver: bridge
